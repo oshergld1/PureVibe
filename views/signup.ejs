@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="signup.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <img src="bg.png" alt="background" id="background">
+    <div class ="row container-fluid main">
+        
+        <div class = "col-12">
+            <div id="cornerL" class="col-4">
+                <!-- <div id = "logodiv">
+                    <img src="logo1.png" alt="logo" id="logo">
+                </div> -->
+            </div>
+            <div id = "headiv" class="col-4">
+                <h3 class = "head" id="project">Startupisteam - Gil </h3>
+                <h1 class = "head" id="header"> PureVibe Sign-Up </h1>
+            </div>
+            <div class="col-4"></div>
+        </div>
+
+        <div class="col-12">
+            <div class="col-4"></div>
+            <div id = "formdiv" class="col-4">
+                <form method="post" action="/signup" id = "form">
+                    
+                    <div id = "Names">
+                        <div id = "allnames"> 
+                            <div class = "names"> 
+                                <h1 id = "firstn" class = "formheader">Name</h1>
+                                <input type="text" name="name" id="name">
+                            </div>
+                            <div class = "names"> 
+                                <h1 id="lastn" class = "formheader">Last name</h1>
+                                <input type="text" name="Lname" id="Lname">
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div id = "Username">
+                        <h1 class = "formheader">Username</h1>
+                        <input type="text" name="username" id="username">
+                    </div>
+                    
+                    <div id = "Email">
+                        <h1 class = "formheader">Email</h1>
+                        <input type="email" name="email" id="email">
+                    </div>
+
+                    <div id = "Password">
+                        <h1 class = "formheader">Password</h1>
+                        <input type="password" name="password" id="password">
+                    </div>
+
+                    <div id = "Phone">
+                        <h1 class = "formheader">Phone</h1>
+                        <div id = "number">
+                            <select name="countryCode" id="countryCode">
+                                <option value="-">-</option>
+                                <option value="+1-US">+1 US</option>
+                                <option value="+44-GB">+44 GB</option>
+                                <option value="+972-IL">+972 IL</option>
+                                <option value="+49-DE">+49 DE</option>
+                                <option value="+33-FR">+33 FR</option>
+                                <option value="+39-IT">+39 IT</option>
+                                <option value="+34-ES">+34 ES</option>
+                                <option value="+7-RU">+7 RU</option>
+                                <option value="+81-JP">+81 JP</option>
+                                <option value="+86-CN">+86 CN</option>
+                                <option value="+91-IN">+91 IN</option>
+                                <option value="+61-AU">+61 AU</option>
+                                <option value="+351-PT">+351 PT</option>
+                                <option value="+90-TR">+90 TR</option>
+                                <option value="+386-SI">+386 SI</option>
+                                <option value="+420-CZ">+420 CZ</option>
+                                <option value="+351-PT">+351 PT</option>
+                                <option value="+48-PL">+48 PL</option>
+                                <option value="+380-UA">+380 UA</option>
+                                <option value="+962-JO">+962 JO</option>
+                                <option value="+973-BH">+973 BH</option>
+                                <option value="+965-KW">+965 KW</option>
+                                <option value="+966-SA">+966 SA</option>
+                                <option value="+968-OM">+968 OM</option>
+                                <option value="+971-AE">+971 AE</option>
+                                <option value="+974-QA">+974 QA</option>
+                                <option value="+964-IQ">+964 IQ</option>
+                                <option value="+213-DZ">+213 DZ</option>
+                                <option value="+212-MA">+212 MA</option>
+                                <option value="+1-CA">+1 CA</option>
+                            </select>
+
+
+                            <input type="text" name="phone" id="phone">
+
+                        </div>
+                    </div>
+
+                    <div id = "btn">
+                        <button type="submit">Sign Up</button>
+                    </div>
+
+
+                </form>
+
+                    <div id = "footer">
+                        <h1 class="copyright">Copyright © 2025 PureVibe </h1>
+                        <h1 class="copyright"> · </h1>
+                        <a class="copyright" href="#">Privacy Policy</a>
+                    </div>
+
+
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+    <script src=""></script>
+</body>
+</html>
