@@ -54,7 +54,7 @@
                     <div class="no-posts">
                         <h2>There is no posts yet</h2>
                         <p>Be the first to upload!</p>
-                        <a href="/upload" class="upload-link">Upload new post</a>
+                        <a class="upload-link">Upload new post</a>
                     </div>
                 <% } %>
             </div>
@@ -127,10 +127,24 @@
       <div style="position: absolute; z-index: 1; width: 100vw; height: 100vh; background-color: black; opacity: 0.5; left: 0; top: 0; right: 0;
   bottom: 0;"></div>
   </div>
+  <button class="floating-btn" id="floatingBtn" onclick="openPopup()">
+    +
+  </button>
 
 
 
     <script>
+
+        function openPopup() {
+        const popup = document.getElementById('popup');
+        if (popup) {
+            popup.classList.remove('hide');
+        } else {
+        // אם אין פופאפ, אפשר להוסיף פעולה אחרת
+        alert('הוסף פוסט חדש!');
+        }
+    }
+
         // Add Friend buttons functionality
         const buttons = document.getElementsByClassName("add");
         for (let btn of buttons) {

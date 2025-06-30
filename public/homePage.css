@@ -294,3 +294,46 @@ body {
 .hide {
     display: none;
 }
+
+/* הוסף את הסגנון הזה לקובץ homePage.css */
+
+.floating-btn {
+    position: fixed;
+    right: 22%; /* מיקום יחסית לצד הימני של ה-col-10 */
+    bottom: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.floating-btn:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+.floating-btn:active {
+    transform: translateY(-1px) scale(1.05);
+}
+
+/* התאמה למסכים קטנים */
+@media (max-width: 768px) {
+    .floating-btn {
+        right: 20px;
+        bottom: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
