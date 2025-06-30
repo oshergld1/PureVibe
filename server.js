@@ -44,23 +44,54 @@ const postSchema = new mongoose.Schema({
   imageType: String,
   description: String,
   author: String,
-  createdAt: { type: Date, default: Date.now }
+  createdAt: { type: Date, default: Date.now },
+  comments: [
+  {
+    content: String,
+    commenter: String,
+    createdAt: { type: Date, default: Date.now }
+  }
+]
 });
 const Post = mongoose.model('Post', postSchema, 'Posts');
 
-// ---------- דף הבית - עם פוסטים ----------
-// app.get('/', async (req, res) => {
+// app.get('/homePage', async (req, res) => {
 //   try {
-//     // שליפת כל הפוסטים ממסד הנתונים
-//     const posts = await Post.find({}).sort({ createdAt: -1 }); // ממוינים לפי תאריך יצירה
-//     res.render('homePage', { posts: posts });
+//     const posts = await Post.find({}).sort({ createdAt: -1 });
+//     const userName = req.query.name || 'Guest'; // מקבל את השם מה-URL
+//     res.render('homePage', { posts: posts, name: userName });
 //   } catch (err) {
 //     console.error('❌ Error fetching posts:', err);
-//     res.render('homePage', { posts: [] }); // במקרה של שגיאה, נשלח מערך ריק
+//     res.render('homePage', { posts: [], name: 'Guest' });
 //   }
 // });
 
-// נתיב להצגת תמונות
+app.post('/comment/:id', async (req, res) => {
+  const postId = req.params.id;
+  const { commenter, content } = req.body;
+
+  try {
+    await Post.findByIdAndUpdate(postId, {
+      $push: {
+        comments: {
+          commenter,
+          content,
+          createdAt: new Date()
+        }
+      }
+    });
+
+    // שליפת כל הפוסטים מחדש ורנדר במקום רידיירקט
+    const posts = await Post.find({}).sort({ createdAt: -1 });
+    res.render('homePage', { posts: posts, name: commenter });
+
+  } catch (err) {
+    console.error('❌ Error saving comment:', err);
+    res.status(500).send('שגיאה בשמירת תגובה');
+  }
+});
+
+
 app.get('/image/:id', async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
