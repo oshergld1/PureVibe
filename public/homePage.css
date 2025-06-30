@@ -292,7 +292,7 @@ body {
 }
 
 .hide {
-    display: none;
+    visibility: hidden;
 }
 
 .floating-btn {
@@ -347,3 +347,278 @@ body {
         font-size: 20px;
     }
 }
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+}
+
+/* הרקע השחור */
+#popup::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+/* הפופאפ עצמו */
+.popup-content {
+    background: linear-gradient(45deg, #215072, #001B2E);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 20px 40px rgba(0, 27, 46, 0.3);
+    position: relative;
+    z-index: 2;
+    animation: slideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.popup-content::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #001B2E, #A2A8B9, #FFFFFF, #A2A8B9, #001B2E);
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#popup h2 {
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 10px rgba(0, 27, 46, 0.5);
+    animation: fadeInDown 1s ease-out 0.2s both;
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#popup .form-group {
+    margin-bottom: 25px;
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+#popup .form-group:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+#popup .form-group:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+#popup .form-group:nth-child(4) {
+    animation-delay: 0.5s;
+}
+
+#popup .form-group:nth-child(5) {
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#popup label {
+    display: block;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+#popup input[type="file"],
+#popup input[type="text"],
+#popup textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #A2A8B9;
+    border-radius: 12px;
+    background: rgba(162, 168, 185, 0.1);
+    color: #FFFFFF;
+    font-size: 16px;
+    font-family: inherit;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    backdrop-filter: blur(10px);
+}
+
+#popup input[type="file"]::file-selector-button {
+    background: linear-gradient(135deg, #001B2E, #A2A8B9);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+#popup input[type="file"]::file-selector-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 27, 46, 0.4);
+}
+
+#popup input[type="text"]:focus,
+#popup textarea:focus,
+#popup input[type="file"]:focus {
+    outline: none;
+    border-color: #FFFFFF;
+    background: rgba(162, 168, 185, 0.2);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+#popup input[type="text"]::placeholder,
+#popup textarea::placeholder {
+    color: rgba(162, 168, 185, 0.8);
+}
+
+#popup textarea {
+    min-height: 120px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+#popup button[type="submit"] {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #001B2E 0%, #A2A8B9 100%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 25px rgba(0, 27, 46, 0.3);
+}
+
+#popup button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+#popup button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 27, 46, 0.4);
+    background: linear-gradient(135deg, #A2A8B9 0%, #FFFFFF 100%);
+    color: #001B2E;
+}
+
+#popup button[type="submit"]:hover::before {
+    left: 100%;
+}
+
+#popup button[type="submit"]:active {
+    transform: translateY(-1px);
+}
+
+/* כפתור סגירה */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    font-size: 24px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(90deg);
+}
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+    .popup-content {
+        padding: 30px 20px;
+        margin: 10px;
+    }
+
+    #popup h2 {
+        font-size: 24px;
+    }
+
+    #popup input[type="file"],
+    #popup input[type="text"],
+    #popup textarea {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+
+    #popup button[type="submit"] {
+        padding: 14px;
+        font-size: 16px;
+    } }

@@ -103,35 +103,35 @@
         </div>
     </div>
 
-  <div id="popup" class="popup">
-    <h2>העלאת פוסט חדש</h2>
-    <form action="/posts" method="POST" enctype="multipart/form-data">
-      <div class="form-group">
-        <label>תמונה:</label>
-        <input type="file" name="image" accept="image/*" required>
-      </div>
-
-      <div class="form-group">
-        <label>תיאור:</label>
-        <textarea name="description" placeholder="כתבו כאן את התיאור שלכם..." required></textarea>
-      </div>
-
-      <div class="form-group" style="display: none;">
-        <input value="<%-name%>" type="text" name="author" placeholder="שם היוצר" required>
-      </div>
-
-      <div class="form-group">
-        <button type="submit">שמור פוסט</button>
-      </div>
-    </form>
-      <div style="position: absolute; z-index: 1; width: 100vw; height: 100vh; background-color: black; opacity: 0.5; left: 0; top: 0; right: 0;
-  bottom: 0;"></div>
-  </div>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <button class="close-btn">&times;</button>
+    
+            <h2>העלאת פוסט חדש</h2>
+    
+            <form action="/posts" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>תמונה:</label>
+                    <input type="file" name="image" accept="image/*" required>
+                </div>
+    
+                <div class="form-group">
+                    <label>תיאור:</label>
+                    <textarea name="description" placeholder="כתבו כאן את התיאור שלכם..." required></textarea>
+                </div>
+    
+                <div class="form-group" style="display: none;">
+                    <input value="<%-name%>" type="text" name="author" placeholder="שם היוצר" required>
+                </div>
+    
+                <div class="form-group">
+                    <button type="submit">שמור פוסט</button>
+                </div>
+            </form>
+        </div></div>
 <button class="floating-btn" id="floatingBtn" onclick="openPopup()">
     +
 </button>
-
-
 
     <script>
         function openPopup() {
@@ -156,6 +156,14 @@
                     floatingBtn.style.display = 'flex'; // החזרת הכפתור
                 }
             }
+
+            // הוספת event listener לכפתור הסגירה לאחר טעינת הדף
+            document.addEventListener('DOMContentLoaded', function () {
+                const closeBtn = document.querySelector('.close-btn');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', closePopup);
+                }
+            });
 
             // האזנה ללחיצה על הרקע כדי לסגור את הפופאפ
             document.addEventListener('click', function (event) {
