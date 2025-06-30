@@ -88,14 +88,14 @@ app.post('/signup', async (req, res) => {
     const existing = await db.collection('Users').findOne({ email });
 
     if (existing) {
-      res.render('signup', { message: 'האימייל כבר קיים. עבור להתחברות.' });
+      res.render('signup', { message: 'The email already exist. Please log in.' });
     } else {
       await db.collection('Users').insertOne({ name, last_name, username, email, password, phone });
-      res.send('✅ נרשמת בהצלחה! עכשיו תוכל להתחבר.');
+      res.send('You have successfully registered!');
     }
   } catch (err) {
     console.error('❌ Error in registration:', err);
-    res.status(500).send('שגיאת שרת בהרשמה');
+    res.status(500).send('server error during registration');
   }
 });
 
@@ -122,11 +122,11 @@ app.post('/homePage', async (req, res) => {
         res.render('homePage', { posts: [] }); // במקרה של שגיאה, נשלח מערך ריק
       }
     } else {
-      res.render('login', { message: 'משתמש לא רשום או סיסמה שגויה.' });
+      res.render('login', { message: 'User not exist or wrong password.' });
     }
   } catch (err) {
     console.error('❌ Error in login:', err);
-    res.status(500).send('שגיאת שרת בהתחברות');
+    res.status(500).send('server error during login');
   }
 });
 
