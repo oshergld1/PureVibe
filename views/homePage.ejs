@@ -127,25 +127,60 @@
       <div style="position: absolute; z-index: 1; width: 100vw; height: 100vh; background-color: black; opacity: 0.5; left: 0; top: 0; right: 0;
   bottom: 0;"></div>
   </div>
-  <button class="floating-btn" id="floatingBtn" onclick="openPopup()">
+<button class="floating-btn" id="floatingBtn" onclick="openPopup()">
     +
-  </button>
+</button>
 
 
 
     <script>
-
         function openPopup() {
-        const popup = document.getElementById('popup');
-        if (popup) {
-            popup.classList.remove('hide');
-        } else {
-        // אם אין פופאפ, אפשר להוסיף פעולה אחרת
-        alert('הוסף פוסט חדש!');
-        }
-    }
+                const popup = document.getElementById('popup');
+                const floatingBtn = document.getElementById('floatingBtn');
 
-        // Add Friend buttons functionality
+                if (popup) {
+                    popup.classList.remove('hide');
+                    floatingBtn.style.display = 'none'; // הסתרת הכפתור
+                } else {
+                    alert('הוסף פוסט חדש!');
+                }
+            }
+
+            // פונקציה לסגירת הפופאפ והחזרת הכפתור
+            function closePopup() {
+                const popup = document.getElementById('popup');
+                const floatingBtn = document.getElementById('floatingBtn');
+
+                if (popup) {
+                    popup.classList.add('hide');
+                    floatingBtn.style.display = 'flex'; // החזרת הכפתור
+                }
+            }
+
+            // האזנה ללחיצה על הרקע כדי לסגור את הפופאפ
+            document.addEventListener('click', function (event) {
+                const popup = document.getElementById('popup');
+                const floatingBtn = document.getElementById('floatingBtn');
+
+                // אם לחצו על הרקע השחור (הדיב עם האופציה)
+                if (event.target.style.backgroundColor === 'black' && event.target.style.opacity === '0.5') {
+                    popup.classList.add('hide');
+                    floatingBtn.style.display = 'flex';
+                }
+            });
+
+            // האזנה למקש ESC לסגירת הפופאפ
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') {
+                    const popup = document.getElementById('popup');
+                    const floatingBtn = document.getElementById('floatingBtn');
+
+                    if (popup && !popup.classList.contains('hide')) {
+                        popup.classList.add('hide');
+                        floatingBtn.style.display = 'flex';
+                    }
+                }
+            });
         const buttons = document.getElementsByClassName("add");
         for (let btn of buttons) {
             btn.onclick = function () {
