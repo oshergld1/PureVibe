@@ -108,6 +108,7 @@ app.get('/login', (req, res) => {
 app.post('/homePage', async (req, res) => {
   const { username, password } = req.body;
 
+
   try {
     const user = await db.collection('Users').findOne({ username, password });
 
@@ -145,7 +146,11 @@ app.post('/posts', upload.single('image'), async (req, res) => {
     });
 
     await newPost.save();
-    res.redirect('/'); // הפניה לדף הבית אחרי העלאת פוסט
+
+    // במקום redirect, רנדר ישירות את הדף עם הפוסטים
+    const posts = await Post.find({}).sort({ createdAt: -1 });
+    res.render('homePage', { posts: posts, name: req.body.author });
+
   } catch (err) {
     console.error('❌ Error saving post:', err);
     res.status(500).send('שגיאה בשמירת הפוסט');
