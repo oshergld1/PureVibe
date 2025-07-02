@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // URI למונגו
-const uri = 'mongodb+srv://oshergld1:osher1201@cluster0.ztvjv6l.mongodb.net/';
+const uri = 'mongodb://localhost:27017/';
 const mongoClient = new MongoClient(uri);
 let db;
 
