@@ -54,9 +54,10 @@ body {
 }
 
 .post-header {
+    justify-content: right;
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .post-author {
@@ -78,6 +79,7 @@ body {
 }
 
 .author-name {
+    text-align: right;
     font-size: 16px;
     font-weight: 600;
     margin: 0;
@@ -95,13 +97,7 @@ body {
     margin-bottom: 15px;
 }
 
-.post-description {
-    font-size: 15px;
-    line-height: 1.5;
-    color: #1a1a1a;
-    margin-bottom: 12px;
-    white-space: pre-wrap;
-}
+
 
 .post-image-container {
     width: 100%;
@@ -111,6 +107,7 @@ body {
 }
 
 .post-image {
+    box-shadow: 0px 10px 5px #888888;
     width: 100%;
     height: auto;
     max-height: 400px;
@@ -121,6 +118,7 @@ body {
 .post-actions {
     display: flex;
     gap: 15px;
+    justify-content: right;
     padding-top: 12px;
     border-top: 1px solid #e1e8ed;
 }
@@ -166,7 +164,7 @@ body {
 
 .upload-link {
     display: inline-block;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #667eea 0%, #001B2E 100%);
     color: white;
     padding: 12px 24px;
     border-radius: 25px;
@@ -622,3 +620,83 @@ body {
         padding: 14px;
         font-size: 16px;
     } }
+
+.post-description 
+{   
+    color: #1a1a1a;
+    font-size: 35px;
+    margin-bottom: 10px;
+    padding-bottom: 0px;
+    border-radius: 10px;
+    text-align: right;
+    padding-right: 15px;
+    padding-left: 15px;
+    font-family: Varela Round;
+    font-weight: bold;
+    padding-bottom: 0%;
+    padding-top: 0%;
+}
+
+
+
+/* טופס תגובות */
+
+.comment_content{
+    font-size: 18px;
+    padding: 10px;
+    width: 40%;
+    font-family: Varela Round;
+    background-color: #667eea;
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0px 10px 10px rgb(197, 197, 197);
+}
+
+.comment_content::placeholder{
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+.btn_comment{
+    border: 0px;
+    border-radius: 10px;
+    font-family: Varela Round;
+    box-shadow:  2px 5px 5px #415d7b;
+    padding: 8px;
+}
+
+
+.btn_comment:hover{
+    background-color: rgb(178, 237, 227);
+}
+
+
+.commentsC{
+    
+    font-size: 18px;
+    padding: 10px;
+    float: right;
+    width: 60%;
+    font-family: Varela Round;
+    background-color: #415d7b;
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0px 10px 10px rgb(197, 197, 197);
+
+}
+
+.singleC{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: black;
+    background-color: white;
+    gap: 0;
+    padding: 0%;
+    margin: 0%;
+    float: right;
+    border: 3px solid #9db5ce;
+    width: 100%;
+    border-radius: 15px;
+    padding: 6px;
+    row-gap: 0px;
+}
