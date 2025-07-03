@@ -19,6 +19,10 @@ body {
     z-index: -2;
     opacity: 0.015;
 }
+.hebrew-text {
+    font-family: 'Assistant', sans-serif;
+    direction: rtl;
+}
 
 .row {
     display: flex;
@@ -622,3 +626,13 @@ body {
         padding: 14px;
         font-size: 16px;
     } }
+
+        .list-group-item {
+            display: flex;
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+
+        .list-group-item strong {
+            margin-left: 2px;
+        }
